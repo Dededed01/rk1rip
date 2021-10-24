@@ -1,4 +1,4 @@
-# используется для сортировки
+
 from operator import itemgetter
  
 class det:
@@ -32,7 +32,7 @@ mark = [
     mark(33, 'VAG'),
 ]
  
-# Сотрудники
+# Детали
 det = [
     det(1, 'Crankshaft', 18200, 1),
     det(2, 'Piston', 7350, 2),
@@ -92,7 +92,7 @@ def main():
             d_prices_sum = sum(m_prices)
             res_12_unsorted.append((m.name, d_prices_sum))
  
-    # Сортировка по суммарной зарплате
+    # Сортировка по суммарной стоимости
     res_12 = sorted(res_12_unsorted, key=itemgetter(1), reverse=True)
     print(res_12)
  
@@ -101,9 +101,7 @@ def main():
     # Перебираем все отделы
     for m in mark:
         if 'Motors' in m.name:
-            # Список сотрудников отдела
             m_dets = list(filter(lambda i: i[2]==m.name, many_to_many))
-            # Только ФИО сотрудников
             m_dets_names = [x for x,_,_ in m_dets]
 
             res_13[m.name] = m_dets_names
